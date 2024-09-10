@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/auth_provider.dart';
 import 'package:flutter_app/providers/splash_provider.dart';
-import 'package:flutter_app/screen/home/home_screen.dart';
+import 'package:flutter_app/screen/main/main_screen.dart';
 import 'package:flutter_app/screen/login/login_screen.dart';
 import 'package:flutter_app/screen/register/register_screen.dart';
 import 'package:flutter_app/screen/splash/splash_screen.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashScreen(),
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
-        '/home': (context) => HomeScreen(),
+        '/home': (context) => MainScreen(),
       },
     );
   }
