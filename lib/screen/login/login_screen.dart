@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/auth_provider.dart';
+import 'package:flutter_app/screen/main/main_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -30,7 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
             .handleLogin(_emailController.text, _passwordController.text);
 
         // login success go to home
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => MainScreen()),
+        );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
