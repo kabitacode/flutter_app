@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/providers/auth_provider.dart';
+import 'package:flutter_app/screen/login/login_screen.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return Scaffold(
       body: Center(
-        child: Text(
-          'Profile Screen',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+          child: ElevatedButton(
+              onPressed: () async {
+                authProvider.logout();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          LoginScreen()), // Arahkan ke halaman login
+                );
+              },
+              child: Text('logout'))),
     );
   }
 }
