@@ -18,20 +18,26 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Email & Password is Empty!")));
+      if (_emailController.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("Email is Empty!")));
+      } else if (_passwordController.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("Password is Empty!")));
       } else {
         // call from AuthProvider
         await Provider.of<AuthProvider>(context, listen: false)
-            .login(_emailController.text, _passwordController.text);
+            .handleLogin(_emailController.text, _passwordController.text);
 
         // login success go to home
         Navigator.pushReplacementNamed(context, '/home');
       }
     } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Login Failed: $e")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("$e"),
+        showCloseIcon: true,
+        backgroundColor: Colors.red,
+      ));
     } finally {
       setState(() {
         _isloading = false;
@@ -49,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: "Email"),
+              decoration: const InputDecoration(labelText: "Email"),
             ),
             TextField(
               controller: _passwordController,

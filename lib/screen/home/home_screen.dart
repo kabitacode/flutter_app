@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/providers/splash_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,6 +8,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<SplashProvider>(context, listen: false).loadToken();
+  }
+
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
@@ -21,9 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+    final token = Provider.of<SplashProvider>(context);
+
+    return SafeArea(
+        child: Scaffold(
+      body: Column(
+        children: [Text("hello")],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -34,6 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
-    );
+    ));
   }
 }
