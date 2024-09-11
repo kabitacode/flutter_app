@@ -4,6 +4,8 @@ import 'package:flutter_app/providers/splash_provider.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final token = Provider.of<SplashProvider>(context);
@@ -12,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Text(
           'Token: ${token.token ?? "Tidak ada token"}',
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
           textAlign: TextAlign.center,
         ),
       ),

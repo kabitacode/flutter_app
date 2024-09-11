@@ -5,6 +5,8 @@ import 'package:flutter_app/screen/profile/profie_screen.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }

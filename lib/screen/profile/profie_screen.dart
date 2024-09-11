@@ -4,6 +4,8 @@ import 'package:flutter_app/screen/login/login_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
@@ -18,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
                           LoginScreen()), // Arahkan ke halaman login
                 );
               },
-              child: Text('logout'))),
+              child: const Text('logout'))),
     );
   }
 }

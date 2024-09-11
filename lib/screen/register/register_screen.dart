@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -14,29 +16,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sign Up")),
+      appBar: AppBar(title: const Text("Sign Up")),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: "Email"),
+              decoration: const InputDecoration(labelText: "Email"),
             ),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: "Password"),
+              decoration: const InputDecoration(labelText: "Password"),
               obscureText: true,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            ElevatedButton(onPressed: _register, child: Text("Sign Up")),
+            ElevatedButton(onPressed: _register, child: const Text("Sign Up")),
             TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text("Sign In"))
+                child: const Text("Sign In"))
           ],
         ),
       ),

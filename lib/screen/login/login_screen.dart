@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -66,15 +68,15 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 40),
-                child: Icon(
+                margin: const EdgeInsets.only(bottom: 40),
+                child: const Icon(
                   Icons.store,
                   color: colorOrange,
                   size: 100,
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 0),
+                margin: const EdgeInsets.only(bottom: 0),
                 child: Text(
                   'Welcome to Store!',
                   style: GoogleFonts.lato(
@@ -85,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 40),
+                margin: const EdgeInsets.only(bottom: 40),
                 child: Text(
                   'make sure you shop happily!',
                   style: GoogleFonts.openSans(
@@ -98,17 +100,17 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(width: 2, color: colorPrimary)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                     labelText: "Email"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(width: 2, color: colorPrimary)),
                     suffixIcon: IconButton(
                         onPressed: () {
@@ -124,12 +126,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelText: "Password"),
                 obscureText: !isVisibility,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               _isloading
-                  ? CircularProgressIndicator()
-                  : Container(
+                  ? const CircularProgressIndicator()
+                  : SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -145,12 +147,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           )),
                     ),
-              Spacer(),
+              const Spacer(),
               TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/register');
                   },
-                  child: Text("Sign Up"))
+                  child: const Text("Sign Up"))
             ],
           ),
         ),
