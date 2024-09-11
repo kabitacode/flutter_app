@@ -3,6 +3,7 @@ import 'package:flutter_app/providers/auth_provider.dart';
 import 'package:flutter_app/screen/main/main_screen.dart';
 import 'package:flutter_app/utils/theme.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -64,6 +65,36 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 40),
+                child: Icon(
+                  Icons.store,
+                  color: colorOrange,
+                  size: 100,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 0),
+                child: Text(
+                  'Welcome to Store!',
+                  style: GoogleFonts.lato(
+                    color: colorTypography,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 40),
+                child: Text(
+                  'make sure you shop happily!',
+                  style: GoogleFonts.openSans(
+                    color: colorTypography,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
@@ -94,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: !isVisibility,
               ),
               SizedBox(
-                height: 20,
+                height: 50,
               ),
               _isloading
                   ? CircularProgressIndicator()
@@ -103,18 +134,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               minimumSize: const Size.fromHeight(45),
-                              backgroundColor: colorPrimary),
+                              backgroundColor: colorSecondary),
                           onPressed: () => _login(context),
                           child: Text(
                             "Login",
-                            style: TextStyle(color: Colors.white),
+                            style: GoogleFonts.openSans(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
                           )),
                     ),
-              // TextButton(
-              //     onPressed: () {
-              //       Navigator.pushNamed(context, '/register');
-              //     },
-              //     child: Text("Sign Up"))
+              Spacer(),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  child: Text("Sign Up"))
             ],
           ),
         ),
