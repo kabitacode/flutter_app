@@ -9,9 +9,15 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isloading = false;
+  bool isVisibility = false;
 
   Future<void> _login(BuildContext context) async {
     setState(() {
@@ -58,12 +64,28 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             TextField(
               controller: _emailController,
-              decoration: const InputDecoration(labelText: "Email"),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  labelText: "Email"),
             ),
+            SizedBox(height: 20),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: "Password"),
-              obscureText: true,
+              decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isVisibility = !isVisibility;
+                        });
+                      },
+                      icon: Icon(isVisibility
+                          ? Icons.visibility
+                          : Icons.visibility_off)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  labelText: "Password"),
+              obscureText: !isVisibility,
             ),
             SizedBox(
               height: 20,
