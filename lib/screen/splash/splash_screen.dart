@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/splash_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,18 +22,28 @@ class _SplashScreenState extends State<SplashScreen> {
     await splashProvider.tryAutoLogin();
 
     if (splashProvider.isLogin) {
-      Navigator.pushReplacementNamed(context, '/home');
+      Future.delayed(
+          const Duration(
+            seconds: 5,
+          ), () {
+        return Navigator.pushReplacementNamed(context, '/home');
+      });
     } else {
-      Navigator.pushReplacementNamed(context, '/login');
+      Future.delayed(
+          const Duration(
+            seconds: 5,
+          ), () {
+        return Navigator.pushReplacementNamed(context, '/login');
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
+    return Scaffold(
+        body: Container(
+      child: Lottie.asset('assets/lotties/lottie_splash.json',
+          width: double.infinity, height: double.infinity, fit: BoxFit.fill),
+    ));
   }
 }

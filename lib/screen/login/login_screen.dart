@@ -4,7 +4,6 @@ import 'package:flutter_app/screen/main/main_screen.dart';
 import 'package:flutter_app/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -43,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
         // login success go to home
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const MainScreen()),
+          MaterialPageRoute(builder: (context) => MainScreen()),
         );
       }
     } catch (e) {
@@ -69,10 +68,13 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               Container(
-                  width: 250,
-                  height: 250,
-                  margin: const EdgeInsets.only(bottom: 10),
-                  child: Lottie.asset('assets/lotties/login_lottie.json')),
+                margin: const EdgeInsets.only(bottom: 40),
+                child: const Icon(
+                  Icons.store,
+                  color: colorOrange,
+                  size: 100,
+                ),
+              ),
               Container(
                 margin: const EdgeInsets.only(bottom: 0),
                 child: Text(
