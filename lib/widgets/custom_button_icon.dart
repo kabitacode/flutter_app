@@ -38,7 +38,7 @@ class CustomButtonIcon extends StatelessWidget {
               style: GoogleFonts.lato(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: colorTypography),
+                  color: AppColors.typography),
             )
           ],
         ),

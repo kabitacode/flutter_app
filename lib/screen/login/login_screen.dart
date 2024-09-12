@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Welcome to Store!',
                   style: GoogleFonts.lato(
-                    color: colorTypography,
+                    color: AppColors.typography,
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
                   ),
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'make sure you shop happily!',
                   style: GoogleFonts.openSans(
-                    color: colorTypography,
+                    color: AppColors.typography,
                     fontSize: 18,
                     fontWeight: FontWeight.w300,
                   ),
@@ -100,7 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _emailController,
                 decoration: InputDecoration(
                     focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(width: 2, color: colorPrimary)),
+                        borderSide:
+                            BorderSide(width: 2, color: AppColors.primary)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                     labelText: "Email"),
@@ -110,7 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _passwordController,
                 decoration: InputDecoration(
                     focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(width: 2, color: colorPrimary)),
+                        borderSide:
+                            BorderSide(width: 2, color: AppColors.primary)),
                     suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
@@ -135,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               minimumSize: const Size.fromHeight(45),
-                              backgroundColor: colorSecondary),
+                              backgroundColor: AppColors.secondary),
                           onPressed: () => _login(context),
                           child: Text(
                             "Login",

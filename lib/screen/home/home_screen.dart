@@ -41,11 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         labelText: "Search..",
                         border: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: colorTypography, width: 2),
+                              BorderSide(color: AppColors.primary, width: 2),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      style: TextStyle(fontSize: 15, color: colorTypography),
+                      style:
+                          TextStyle(fontSize: 15, color: AppColors.typography),
                     ),
                   )),
                 ],
@@ -58,42 +59,42 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 CustomButtonIcon(
                     icon: Icons.discount,
-                    colorButton: colorOrange,
+                    colorButton: AppColors.orange,
                     onTap: () {},
                     label: "Discount"),
                 CustomButtonIcon(
                     icon: Icons.broadcast_on_personal_outlined,
-                    colorButton: colorPrimary,
+                    colorButton: AppColors.primary,
                     onTap: () {},
                     label: "Credit"),
                 CustomButtonIcon(
                     icon: Icons.payment,
-                    colorButton: colorSecondary,
+                    colorButton: AppColors.secondary,
                     onTap: () {},
                     label: "Payment"),
                 CustomButtonIcon(
                     icon: Icons.phone_android_sharp,
-                    colorButton: colorOther,
+                    colorButton: AppColors.other,
                     onTap: () {},
                     label: "TopUp"),
                 CustomButtonIcon(
                     icon: Icons.payments_rounded,
-                    colorButton: colorOther_1,
+                    colorButton: AppColors.other1,
                     onTap: () {},
                     label: "Voucher"),
                 CustomButtonIcon(
                     icon: Icons.paypal_outlined,
-                    colorButton: colorOther_2,
+                    colorButton: AppColors.other2,
                     onTap: () {},
                     label: "Bill"),
                 CustomButtonIcon(
                     icon: Icons.monetization_on_outlined,
-                    colorButton: colorPurple,
+                    colorButton: AppColors.other3,
                     onTap: () {},
                     label: "Claim"),
                 CustomButtonIcon(
                     icon: Icons.games,
-                    colorButton: colorOther_3,
+                    colorButton: AppColors.purple,
                     onTap: () {},
                     label: "Games"),
               ],
