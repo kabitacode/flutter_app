@@ -68,13 +68,12 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(bottom: 40),
-                child: const Icon(
-                  Icons.store,
-                  color: colorOrange,
-                  size: 100,
-                ),
-              ),
+                  margin: const EdgeInsets.only(bottom: 40),
+                  child: Image.asset(
+                    'assets/images/logo-login.png',
+                    width: 200,
+                    height: 200,
+                  )),
               Container(
                 margin: const EdgeInsets.only(bottom: 0),
                 child: Text(
