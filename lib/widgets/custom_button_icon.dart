@@ -20,17 +20,21 @@ class CustomButtonIcon extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        decoration: BoxDecoration(
-            color: colorButton, borderRadius: BorderRadius.circular(10)),
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
         child: Column(
           children: [
-            Icon(Icons.discount),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                  color: colorButton, borderRadius: BorderRadius.circular(100)),
+              child: Icon(icon),
+            ),
             SizedBox(
               height: 5,
             ),
             Text(
-              "Discount",
+              label,
               style: GoogleFonts.lato(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
