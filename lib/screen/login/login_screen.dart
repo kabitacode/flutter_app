@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
         // login success go to home
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => MainScreen()),
+          MaterialPageRoute(builder: (context) => const MainScreen()),
         );
       }
     } catch (e) {

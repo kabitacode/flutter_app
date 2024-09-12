@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   int _selectedIndex = 0;
-  final List<Widget> _screens = [HomeScreen(), ProfileScreen()];
+  final List<Widget> _screens = [const HomeScreen(), const ProfileScreen()];
 
   void _onItemTapped(int index) {
     setState(() {
