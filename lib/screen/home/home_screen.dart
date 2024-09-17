@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/auth_provider.dart';
+import 'package:flutter_app/providers/home_provider.dart';
+import 'package:flutter_app/services/home_Services.dart';
 import 'package:flutter_app/utils/theme.dart';
 import 'package:flutter_app/widgets/custom_button_icon.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,9 +17,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController searchController = TextEditingController();
 
+  void initState() {
+    super.initState();
+    getProduct();
+  }
+
+  void getProduct() async {
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    homeProvider.fetchProduct();
+  }
+
   @override
   Widget build(BuildContext context) {
     final token = Provider.of<AuthProvider>(context);
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
 
     return Scaffold(
       body: SafeArea(
@@ -98,7 +111,68 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {},
                     label: "Games"),
               ],
-            )
+            ),
+            Expanded(
+                child: Consumer<HomeProvider>(builder: (context, value, child) {
+              return ListView.builder(
+                  itemCount: homeProvider.products.length,
+                  itemBuilder: (context, index) {
+                    final item = homeProvider.products[index];
+                    return InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: EdgeInsets.all(12),
+                        margin:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.shade200,
+                                  spreadRadius: 1,
+                                  blurRadius: 5)
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.network(
+                              item.category.image,
+                              height: 100,
+                              width: 100,
+                              errorBuilder: (context, error, stactTrace) {
+                                return Icon(Icons.image, size: 120);
+                              },
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item.title,
+                                    style: GoogleFonts.lato(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.typography),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    item.description,
+                                    style: GoogleFonts.lato(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w300,
+                                        color: AppColors.typography),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  });
+            }))
           ],
         ),
       ),
