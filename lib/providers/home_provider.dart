@@ -6,12 +6,26 @@ class HomeProvider with ChangeNotifier {
   List<Product> _product = [];
   List<Product> get products => _product;
 
-  Future<void> fetchProduct() async {
-    final homeServices = await HomeServices();
-    final response = await homeServices.getProduct();
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
-    if (response != null) {
-      _product = response;
+  Future<void> fetchProduct() async {
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      final homeServices = await HomeServices();
+      final response = await homeServices.getProduct();
+
+      if (response != null) {
+        _product = response;
+      } else {
+        _product = [];
+      }
+    } catch (e) {
+      throw Exception('Failed to fetch products: $e');
+    } finally {
+      _isLoading = false;
       notifyListeners();
     }
   }
