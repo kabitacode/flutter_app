@@ -14,11 +14,7 @@ class ProfileScreen extends StatelessWidget {
           child: ElevatedButton(
               onPressed: () async {
                 authProvider.logout();
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          LoginScreen()), // Arahkan ke halaman login
-                );
+                Navigator.of(context).pushReplacementNamed('/');
               },
               child: const Text('logout'))),
     );
