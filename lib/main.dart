@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/auth_provider.dart';
 import 'package:flutter_app/providers/home_provider.dart';
+import 'package:flutter_app/providers/profile_provider.dart';
 import 'package:flutter_app/providers/splash_provider.dart';
 import 'package:flutter_app/screen/main/main_screen.dart';
 import 'package:flutter_app/screen/login/login_screen.dart';
@@ -13,6 +14,7 @@ void main() {
     ChangeNotifierProvider(create: (_) => AuthProvider()),
     ChangeNotifierProvider(create: (_) => SplashProvider()),
     ChangeNotifierProvider(create: (_) => HomeProvider()),
+    ChangeNotifierProvider(create: (_) => ProfileProvider()),
   ], child: const MyApp()));
 }
 

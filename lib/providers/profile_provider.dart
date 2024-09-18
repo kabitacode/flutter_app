@@ -14,12 +14,11 @@ class ProfileProvider extends ChangeNotifier {
 
     try {
       final profileServices = await ProfileServices();
-      final response = profileServices.fetchProfile(token);
+      final response = await profileServices.fetchProfile(token);
 
-      if (response != null) {
-        _data = response as Map<String, dynamic>;
-      }
+      _data = response;
     } catch (e) {
+      throw Exception("");
     } finally {
       _isLoading = false;
       notifyListeners();
