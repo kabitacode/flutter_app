@@ -147,7 +147,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                         SizedBox(height: 10),
                                         Text(
-                                          item.description,
+                                          item.description.length > 20
+                                              ? item.description
+                                                      .substring(0, 80) +
+                                                  '...'
+                                              : item.description,
                                           style: GoogleFonts.lato(
                                               fontSize: 13,
                                               fontWeight: FontWeight.w300,
