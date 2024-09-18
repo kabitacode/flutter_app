@@ -30,4 +30,10 @@ class AuthProvider with ChangeNotifier {
 
     notifyListeners();
   }
+
+  Future<void> getToken() async {
+    SharedPreferences storage = await SharedPreferences.getInstance();
+    _token = storage.getString('access_token');
+    notifyListeners();
+  }
 }
