@@ -20,6 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> getAuthenticated() async {
     final splashProvider = Provider.of<SplashProvider>(context, listen: false);
     await splashProvider.tryAutoLogin();
+    await splashProvider.loadToken();
 
     if (splashProvider.isLogin) {
       Future.delayed(
