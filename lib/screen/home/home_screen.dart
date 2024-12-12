@@ -146,6 +146,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                               color: AppColors.typography),
                                         ),
                                         SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Category : ',
+                                              style: GoogleFonts.lato(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: AppColors.typography),
+                                            ),
+                                            Text(
+                                              item.category.name,
+                                              style: GoogleFonts.lato(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: AppColors.typography),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 10),
                                         Text(
                                           item.description.length > 20
                                               ? item.description
